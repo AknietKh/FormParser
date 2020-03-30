@@ -25,7 +25,6 @@ class FormParser {
         return formInputTemplate;
       }
     });
-    console.log('formInputsTemplate: ', formInputsTemplate);
 
     return formInputsTemplate.join(' ');
     
@@ -54,7 +53,6 @@ class FormParser {
         return referencesItemTemplate;
       }
     });
-    console.log('referencesTemplate: ', referencesTemplate);
 
     return referencesTemplate.join(' ');
   }
@@ -68,7 +66,6 @@ class FormParser {
 
       return buttonTemplate;
     });
-    console.log('buttonsTemplate: ', buttonsTemplate);
 
     return buttonsTemplate.join(' ');
     
