@@ -107,15 +107,19 @@ class ResponseToUrl {
 }
 
 
-// let responseSignin = new ResponseToUrl('./db/signin.json').get();
-let responseSignup = new ResponseToUrl('./db/signup.json').get();
+//инстанс класса для построения формы signin
+let responseSignin = new ResponseToUrl('./db/signin.json').get();
 
-// responseSignin.then(data => {
-//   let form = new FormParser(data);
-//   form.renderSignIn();
-// })
-
-responseSignup.then(data => {
+responseSignin.then(data => {
   let form = new FormParser(data);
   form.renderSignIn();
-})
+});
+
+
+// //инстанс класса для построения формы signup
+// let responseSignup = new ResponseToUrl('./db/signup.json').get();
+
+// responseSignup.then(data => {
+//   let form = new FormParser(data);
+//   form.renderSignIn();
+// });
