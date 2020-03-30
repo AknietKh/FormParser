@@ -1,0 +1,44 @@
+@import "const.scss";
+
+.btn {
+  display: flex;
+  justify-content: center;
+  width: 16.5rem;
+  height: 5rem;
+  border-radius: 16%/50%;
+  border: 2px solid $blue-primary;
+  color: $blue-primary;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 2.7rem;
+  background-color: #fff;
+  cursor: pointer;
+
+  &_fill {
+    background-color: $blue-primary;
+    color: #ffffff;
+  }
+  &_dark {
+    border-color:$blue-dark;
+    background-color: $blue-dark;
+  }
+
+  &_rectangle {
+    width: 26.3rem;
+    height: 7.6rem;
+    border-radius: 5px;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+}
+
+:active, :hover, :focus {
+  outline: none;
+}
