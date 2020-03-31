@@ -4,10 +4,21 @@ class ResponseToUrl {
   }
 
   async get() {
-    let response = await fetch(this.url);
-    let json = await response.json();
+    try {
+      let response = await fetch(this.url + "0");
 
-    return json;
+      if (response.ok) {
+        let json = await response.json();
+
+        return json;
+      }
+
+      throw Error("Данные не получены: " + response.status )
+      
+    } catch(err) {
+      alert(err);
+      console.log(err);
+    }
   }
 }
 
