@@ -23,7 +23,7 @@ class ColorShemeForm {
       </label>
 
       <label class="colorsheme-form__theme">
-        <input type="${fields[1].input.type}" class="colorsheme-form__checkbox" ${fields[1].input.checked ? "checked" : ""}>
+        <input type="${fields[1].input.type}" class="colorsheme-form__checkbox" ${fields[1].input.checked === "true" ? "checked" : ""}>
         <span class="colorsheme-form__text">${fields[1].label}</span>
       </label>
     `;
