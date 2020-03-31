@@ -5,7 +5,7 @@ class ResponseToUrl {
 
   async get() {
     try {
-      let response = await fetch(this.url + "0");
+      let response = await fetch(this.url);
 
       if (response.ok) {
         let json = await response.json();
