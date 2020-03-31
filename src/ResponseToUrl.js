@@ -1,3 +1,5 @@
+//имитирует get запрос к серверу
+
 class ResponseToUrl {
   constructor(url) {
     this.url = url;

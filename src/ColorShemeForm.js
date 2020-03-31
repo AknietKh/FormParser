@@ -1,3 +1,5 @@
+//Отвечает за рендер colorsheme формы
+
 class ColorShemeForm {
   constructor(json) {
     this.formData = json;
