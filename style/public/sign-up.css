@@ -41,12 +41,7 @@ html {
   font-size: 8px;
 }
 
-body {
-  min-height: 100vh;
-}
-
 .page-content {
-  min-height: 100vh;
   position: relative;
   width: 100%;
   overflow: hidden;
@@ -74,15 +69,41 @@ main {
   justify-content: center;
   align-items: flex-start;
 }
+.main-content_center {
+  align-items: center;
+}
 
 .form-container {
-  width: 70%;
-  max-width: 114rem;
+  width: 100%;
+  max-width: 70rem;
   display: flex;
   justify-content: center;
   align-items: flex-start;
 }
 
+.form-navigation {
+  display: flex;
+  align-self: center;
+}
+.form-navigation :nth-child(n) {
+  margin-right: 1rem;
+}
+.form-navigation :last-child {
+  margin-right: 0;
+}
+
+@media only screen and (max-width: 480px) {
+  .form-navigation {
+    flex-direction: column;
+  }
+  .form-navigation :nth-child(n) {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  .form-navigation :last-child {
+    margin-bottom: 0;
+  }
+}
 .login {
   display: flex;
   flex-direction: column;
@@ -100,7 +121,7 @@ main {
 .login-form__input {
   box-sizing: border-box;
   max-width: 70%;
-  flex-grow: 3;
+  width: 100%;
   height: 6rem;
   padding: 1rem 3rem;
   margin-bottom: 3rem;
@@ -108,7 +129,7 @@ main {
   border: 1px solid #dcdcdc;
 }
 .login-form__input_full-width {
-  width: 100%;
+  max-width: 100%;
 }
 .login-form__input::-webkit-input-placeholder {
   font-family: "Quicksand", sans-serif;
