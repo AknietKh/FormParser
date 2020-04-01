@@ -1,13 +1,14 @@
 //имитирует get запрос к серверу
 
 class ResponseToUrl {
-  constructor(url) {
-    this.url = url;
-  }
+  //старая реализация
+  // constructor(url) {
+  //   this.url = url;
+  // }
 
-  async get() {
+  static async get(url) {
     try {
-      let response = await fetch(this.url);
+      let response = await fetch(url);
 
       if (response.ok) {
         let json = await response.json();
