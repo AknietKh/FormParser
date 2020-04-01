@@ -1,4 +1,4 @@
-//Отвечает за рендер sign in формы
+//Отвечает за рендер sign in формы (Должен реализовывать метод renderForm)
 
 class SignInForm {
   constructor(dataJson) {

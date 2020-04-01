@@ -1,4 +1,4 @@
-//Отвечает за рендер colorsheme формы
+//Отвечает за рендер colorsheme формы (Должен реализовывать метод renderForm)
 
 class ColorShemeForm {
   constructor(json) {

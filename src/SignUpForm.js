@@ -1,4 +1,4 @@
-//отвечает за отображение sign up формы
+//отвечает за отображение sign up формы (Должен реализовывать метод renderForm)
 
 class SignUpForm {
   constructor(dataJson) {
