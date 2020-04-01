@@ -1,17 +1,11 @@
 import { ResponseToUrl } from './ResponseToUrl.js';
 import { FormParser } from './FormParser.js';
-
-//Старая реализация
-// let responseSignIn = new ResponseToUrl('./db/signIn.json').get();
-
-// //инстанс класса для построения формы sign in
-// responseSignIn.then(data => {
-//   let form = new FormParser(data);
-//   form.renderSignInForm();
-// });
+import { SignInForm } from './SignInForm.js';
 
 ResponseToUrl.get('./db/signIn.json')
   .then(data => {
-    let form = new FormParser(data);
-    form.renderSignInForm();
-  });
+    const form = new SignInForm(data);
+    
+    FormParser.setForm(form);
+    FormParser.render();
+  })

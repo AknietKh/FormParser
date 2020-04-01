@@ -1,17 +1,11 @@
 import { ResponseToUrl } from './ResponseToUrl.js';
 import { FormParser } from './FormParser.js';
-
-//Старая реализация
-// let responseColorSheme = new ResponseToUrl('./db/colorSheme.json').get();
-
-//инстанс класса для построения формы colorsceme
-// responseColorSheme.then(data => {
-//   let form = new FormParser(data);
-//   form.renderColorShemeForm();
-// });
+import { ColorShemeForm } from './ColorShemeForm.js';
 
 ResponseToUrl.get('./db/colorSheme.json')
   .then(data => {
-    let form = new FormParser(data);
-    form.renderColorShemeForm();
+    const form = new ColorShemeForm(data);
+    
+    FormParser.setForm(form);
+    FormParser.render();
   });
