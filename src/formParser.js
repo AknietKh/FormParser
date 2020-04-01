@@ -12,21 +12,21 @@ class FormParser {
     const json = this.dataJson;
     const signInForm = new SignInForm(json);
 
-    signInForm.renderSignIn();
+    signInForm.renderForm();
   }
 
   renderSignUpForm() {
     const json = this.dataJson;
     const signUpForm = new SignUpForm(json);
 
-    signUpForm.renderSignUp();
+    signUpForm.renderForm();
   }
 
   renderColorShemeForm() {
     const json = this.dataJson;
     const colorShemeForm = new ColorShemeForm(json);
 
-    colorShemeForm.renderСolorSheme();
+    colorShemeForm.renderForm();
   }
 
 }
