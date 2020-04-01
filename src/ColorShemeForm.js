@@ -5,7 +5,7 @@ class ColorShemeForm {
     this.formData = json;
   }
 
-  renderСolorSheme() {
+  renderForm() {
     const {name, fields} = this.formData;
     const formContainer = document.querySelector('.form-container');
     const form = document.createElement('form');

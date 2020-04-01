@@ -5,7 +5,7 @@ class SignInForm {
     this.formData = dataJson;
   }
 
-  renderFields() {
+  _renderFields() {
     const fields = this.formData.fields;
     const formInputsTemplate = fields.map(item => {
       const {label, input} = item;
@@ -28,7 +28,7 @@ class SignInForm {
     
   }
 
-  renderReferences() {
+  _renderReferences() {
     const references = this.formData.references;
     const referencesTemplate = references.map(item => {
       const {text, ref} = item;
@@ -43,7 +43,7 @@ class SignInForm {
     return referencesTemplate.join(' ');
   }
 
-  renderButtons() {
+  _renderButtons() {
     const buttons = this.formData.buttons;
     const buttonsTemplate = buttons.map(item => {
       const buttonTemplate = `
@@ -57,7 +57,7 @@ class SignInForm {
     
   }
 
-  renderSignIn() {
+  renderForm() {
     const name = this.formData.name;
     const formContainer = document.querySelector('.form-container');
     const form = document.createElement('form');
@@ -66,13 +66,13 @@ class SignInForm {
     form.className = 'login-form';
 
     form.innerHTML = `
-      ${this.renderFields()}
+      ${this._renderFields()}
       
       <div class="login-form__links">
-        ${this.renderReferences()}
+        ${this._renderReferences()}
       </div>
 
-      ${this.renderButtons()}
+      ${this._renderButtons()}
     `;
 
     formContainer.append(form);
