@@ -2,31 +2,15 @@ import { SignInForm } from './SignInForm.js';
 import { SignUpForm } from './SignUpForm.js';
 import { ColorShemeForm } from './ColorShemeForm.js';
 
-//Собирает все методы рендера форм у других классов в одном классе
+//принимает инстанс класса формы и рендерит форму (в классах форм должен реализоваться метод renderForm)
 class FormParser {
-  constructor(dataJson) {
-    this.dataJson = dataJson;
+  
+  static setForm(form) {
+    this.form = form;
   }
 
-  renderSignInForm() {
-    const json = this.dataJson;
-    const signInForm = new SignInForm(json);
-
-    signInForm.renderForm();
-  }
-
-  renderSignUpForm() {
-    const json = this.dataJson;
-    const signUpForm = new SignUpForm(json);
-
-    signUpForm.renderForm();
-  }
-
-  renderColorShemeForm() {
-    const json = this.dataJson;
-    const colorShemeForm = new ColorShemeForm(json);
-
-    colorShemeForm.renderForm();
+  static render() {
+    this.form.renderForm();
   }
 
 }
