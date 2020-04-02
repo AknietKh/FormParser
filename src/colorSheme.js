@@ -4,8 +4,13 @@ import { ColorShemeForm } from './ColorShemeForm.js';
 
 ResponseToUrl.get('./db/colorSheme.json')
   .then(data => {
-    const form = new ColorShemeForm(data);
+    try {
+      const form = new FormParser(data);
+
+      form.renderForm('colorSheme');
+    } catch(err) {
+      alert(err);
+      console.warn(err);
+    }
     
-    FormParser.setForm(form);
-    FormParser.render();
   });

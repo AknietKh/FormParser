@@ -4,8 +4,12 @@ import { SignInForm } from './SignInForm.js';
 
 ResponseToUrl.get('./db/signIn.json')
   .then(data => {
-    const form = new SignInForm(data);
-    
-    FormParser.setForm(form);
-    FormParser.render();
+    try {
+      const form = new FormParser(data);
+
+      form.renderForm('signIn');
+    } catch(err) {
+      alert(err);
+      console.warn(err);
+    }
   })
