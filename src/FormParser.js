@@ -9,7 +9,6 @@ class FormParser {
 
   render() {
     const {name, fields, references, buttons} = this.formData;
-    const formContainer = document.querySelector('.form-container');
     const form = document.createElement('form');
 
     form.name = name;
@@ -33,8 +32,7 @@ class FormParser {
       </div>
     `;
 
-
-    formContainer.append(form);
+    return form;
   }
 }
 
