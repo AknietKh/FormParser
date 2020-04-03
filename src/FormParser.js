@@ -1,6 +1,7 @@
 import { SignInForm } from './SignInForm.js';
 import { SignUpForm } from './SignUpForm.js';
 import { ColorShemeForm } from './ColorShemeForm.js';
+import { AddPostForm } from './AddPostForm.js';
 
 //Реализует метод рендера, который принимает тип формы, которую нужено отобразить
 class FormParser {
@@ -22,6 +23,10 @@ class FormParser {
       case 'colorSheme':
         const colorSheme = new ColorShemeForm(this.formData);
         colorSheme.renderForm();
+        break;
+      case 'addPost': 
+        const addPost = new AddPostForm(this.formData);
+        addPost.renderForm();
         break;
       default:
         throw new Error('Такого типа форм не существует. Убедитесь что правильно ввели тип формы');
