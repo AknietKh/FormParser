@@ -11,12 +11,12 @@ class SignInForm {
       const {label, input} = item;
 
       const formInputTemplate = `
-        <label for="${input.placeholder}" class="login-form__label">
+        <label for="${input.placeholder || '' }" class="login-form__label">
           <span>${label}</span>
           <input type="${input.type}" 
-                  id="${input.placeholder}"
+                  id="${input.placeholder || ''}"
                   class="login-form__input" 
-                  placeholder="${input.placeholder}" 
+                  placeholder="${input.placeholder || ''}" 
                   ${input.required ? "required" : ''}>
         </label>
       `;
@@ -54,7 +54,6 @@ class SignInForm {
     });
 
     return buttonsTemplate.join(' ');
-    
   }
 
   renderForm() {
