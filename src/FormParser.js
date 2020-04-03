@@ -1,40 +1,41 @@
-import { SignInForm } from './SignInForm.js';
-import { SignUpForm } from './SignUpForm.js';
-import { ColorShemeForm } from './ColorShemeForm.js';
-import { AddPostForm } from './AddPostForm.js';
+import { FormFields } from './FormFields.js';
+import { FormReferences } from './FormReferences.js';
+import { Button } from './Button.js';
 
-//Реализует метод рендера, который принимает тип формы, которую нужено отобразить
 class FormParser {
-  
   constructor(json) {
     this.formData = json;
   }
 
-  renderForm(type) {
-    switch (type) {
-      case 'signIn':
-        const signInForm = new SignInForm(this.formData);
-        signInForm.renderForm();
-        break;
-      case 'signUp':
-        const signUpForm = new SignUpForm(this.formData);
-        signUpForm.renderForm();
-        break;
-      case 'colorSheme':
-        const colorSheme = new ColorShemeForm(this.formData);
-        colorSheme.renderForm();
-        break;
-      case 'addPost': 
-        const addPost = new AddPostForm(this.formData);
-        addPost.renderForm();
-        break;
-      default:
-        throw new Error('Такого типа форм не существует. Убедитесь что правильно ввели тип формы');
-        break;
-    }
-      
-  }
+  render() {
+    const {name, fields, references, buttons} = this.formData;
+    const formContainer = document.querySelector('.form-container');
+    const form = document.createElement('form');
 
+    form.name = name;
+    form.className = 'form';
+
+    const formFields = fields.map( item => new FormFields(item).render() ).join('');
+
+    const formReferences = references && references.map( item => new FormReferences(item).render() ).join('');
+
+    const formButtons = buttons && buttons.map( item => new Button(item).render() ).join(''); 
+
+    form.innerHTML = `
+      ${formFields}
+      
+      <div class="form-links">
+        ${formReferences || ' '}
+      </div>
+
+      <div class=""form-buttons>
+        ${formButtons || ' '}
+      </div>
+    `;
+
+
+    formContainer.append(form);
+  }
 }
 
 export {FormParser};
