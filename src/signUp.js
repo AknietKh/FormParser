@@ -4,6 +4,10 @@ import { ResponseToUrl } from './ResponseToUrl.js';
 ResponseToUrl.get('./db/signUp.json')
   .then(data => {
     const form = new FormParser(data);
+    const formContainer = document.querySelector('.form-container');
 
-    form.render();
+    const formTemplate = form.render();
+    console.log(formTemplate);
+
+    formContainer.append(formTemplate);
   })
