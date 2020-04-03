@@ -15,7 +15,7 @@ class SignUpForm {
                 class="login-form__input login-form__input_full-width" 
                 placeholder="${input.placeholder}" 
                 ${input.required ? "required" : ''}>
-      `;
+        `;
 
       return formInputTemplate;
     });
