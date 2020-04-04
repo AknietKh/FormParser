@@ -5,147 +5,128 @@ class FormFields {
   }
 
   render() {
-    const input = this.input;
-    const label = this.label;
+    const input = document.createElement('input');
 
-    if (input.type === 'checkbox') {
-      const checkboxTemplate = `
-        <input 
-              type="${input.type}" 
-              class="form-checkbox" 
-              ${input.checked === "true" ? "checked" : ""}
-              ${input.required ? "required" : ' '}
-        >`;
+    input.id = Date.now();
+    input.type = this.input.type;
+    input.required = this.input.required || null;
 
-      if (label) {
-        const checkboxWithLabelTemplate = `
-          <label class="colorsheme-form__theme">
-            ${checkboxTemplate}
-            <span class="colorsheme-form__text">${label}</span>
-          </label>
-        `;
+    if (this.input.placeholder) {
+      input.placeholder = this.input.placeholder;
+    };
+    
+    if (this.input.type === 'checkbox') {
+      input.className = 'form-checkbox';
+      input.checked = this.input.checked === 'true' ? 1 : 0;
 
-        return checkboxWithLabelTemplate;
+      if (this.label) {
+        const label = document.createElement('label');
+        const labelText = document.createElement('span');
+
+        labelText.innerHTML = this.label;
+        label.className = 'colorsheme-form__theme';
+        label.for = input.id;
+
+        label.append(input);
+        label.append(labelText);
+
+        return label
       }
 
-      return checkboxTemplate;
+      return input;
+
+    } else if (this.input.type === 'textarea') {
+      const textarea = document.createElement('textarea');
       
-    } else if (input.type === 'textarea') {
-      const textareaTemplate = `
-        <label class="form-label">
-          <span>${label}</span>
-          <textarea 
-              class="form-textarea"
-              ${input.required ? 'required' : ' '}
-              ${input.placeholder ? 'placeholder=' + input.placeholder : ' '}
-              ></textarea>
-        </label>
-      `;
+      textarea.id = input.id;
+      textarea.className = 'form-textarea';
+      textarea.required = this.input.required;
 
-      return textareaTemplate;
-      
-    } else if (input.type === 'color') {
-      const colorTemplate = `
-        <label class="colorpicker">
-          <span class="colorpicker__text">${label}</span>
-          <input type="${input.type}" class="colorpicker__input" list="colors">
-          <datalist id="colors" class="colorpicker__list">
-            ${input.colors.map(color => {
-              return `<option value="${color}" label="${color}"></option>`
-            })}
-          </datalist>
-        </label>
-      `;
+      if (this.input.placeholder) {
+        textarea.placeholder = this.input.placeholder;
+      };
 
-      return colorTemplate;
+      if (this.label) {
+        const label = document.createElement('label');
+        const labelText = document.createElement('span');
 
-    } else if (input.type === 'file') {
-      const fileTemplate = `
-        <input 
-            type='${input.type}'
-            ${input.required ? "required" : ' '}
-        >
-      `;
+        labelText.innerHTML = this.label;
+        label.className = 'form-label';
+        label.for = input.id;
 
-      return fileTemplate;
+        label.append(labelText);
+        label.append(textarea);
 
-    } else if (input.type === 'date') {
-      const dateTemplate = `
-        <input
-            type='${input.type}'
-            class="form-date"
-            ${input.required ? "required" : ' '}
-        >
-      `;
+        return label;
+      }
 
-      return dateTemplate;
-    } else {
-      const inputTemplate = `
-        <input type="${input.type}" 
-                class="form-input form-input_center" 
-                ${input.placeholder ? `placeholder="${input.placeholder}"` : ' '} 
-                ${input.required ? "required" : ' '}
-        >`;
+      return textarea;
 
-        if (label) {
-          const labelTemplate = `
-              <label for="${input.placeholder || ' ' }" class="form-label">
-                <span>${label}</span>
-                <input type="${input.type}" 
-                  class="form-input" 
-                  ${input.placeholder ? `placeholder="${input.placeholder}"` : ' '} 
-                  ${input.required ? "required" : ' '}>
-              </label>
-          `;
+    } else if (this.input.type === 'color') {
+        const datalist = document.createElement('datalist');
+        
+        datalist.id = 'colors';
+        datalist.className = 'colorpicker__list';
+        input.className = 'colorpicker__input';
+        input.setAttribute('list', 'colors');
 
-          return labelTemplate;
+        const options = this.input.colors.map( item => {
+          const option = document.createElement('option');
+          
+          option.value = item;
+          option.label = item;
+          
+          return option;
+        });
+
+        options.forEach(item => datalist.append(item));
+
+        if (this.label) {
+          const label = document.createElement('label');
+          const labelText = document.createElement('span');
+  
+          labelText.innerHTML = this.label;
+          labelText.className = 'colorpicker__text';
+          label.className = 'colorpicker';
+          label.for = input.id;
+  
+          label.append(labelText);
+          label.append(input);
+          label.append(datalist);
+  
+          return label;
         }
 
-      return inputTemplate;
+    } else if (this.input.type === 'file') {
+      input.className = '';
+      return input;
+
+    } else if (this.input.type === 'date') {
+      input.className = 'form-date';
+      return input;
+
+    } else {
+      input.classList.add('form-input');
+      input.classList.add('form-input_center');
+
+      if (this.label) {
+        const label = document.createElement('label');
+
+        label.className ='form-label';
+        label.for = input.id;
+        label.innerHTML = `
+          <span>${this.label}</span>
+        `;
+
+        input.classList.remove('form-input_center');
+        label.append(input);
+        
+        return label;
+      }
+
+      return input;
     }
   }
 }
 
 export {FormFields};
-
-// class FormFields {
-//   constructor({label = null, input}, form) {
-//     this.label = label;
-//     this.input = input;
-//     this.form = form;
-//   }
-
-//   render() {
-//     if (this.input.type === 'checkbox') {
-//       console.log(this.input.type)
-//     } else if (this.input.type === 'textarea') {
-//       console.log(this.input.type)
-//     } else if (this.input.type === 'color') {
-//       console.log(this.input.type)
-//     } else if (this.input.type === 'file') {
-//       console.log(this.input.type)
-//     } else if (this.input.type === 'date') {
-//       console.log(this.input.type)
-//     } else {
-//       const input = document.createElement('input');
-
-//       input.type = this.input.type;
-//       input.required = this.input.required || null;
-//       input.placeholder = this.input.placeholder || null;
-//       input.className = 'form-input';
-      
-//       if (this.label) {
-//         const label = document.createElement('label');
-//         label.innerHTML = `
-//           <span>${this.label}</span>
-//         `;
-
-//         label.append(input);
-//         this.form.append(label);
-//       } else {
-//         this.form.append(input);
-//       }
-
-//     }
-//   }
-// }

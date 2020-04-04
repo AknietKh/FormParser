@@ -4,11 +4,13 @@ class Button {
   }
 
   render() {
-    const btnTemplate = `
-      <input type="submit" value="${this.text}" class="btn btn_fill">
-    `;
+    const btn = document.createElement('button');
+    
+    btn.innerHTML = this.text;
+    btn.classList.add('btn');
+    btn.classList.add('btn_fill');
 
-    return btnTemplate;
+    return btn;
   }
 }
 

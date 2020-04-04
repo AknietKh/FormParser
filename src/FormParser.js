@@ -8,27 +8,42 @@ class FormParser {
   }
 
   render() {
-    const {name, fields, references = '', buttons = ''} = this.formData;
+    const {name, fields, references = null, buttons = null} = this.formData;
     const form = document.createElement('form');
 
     form.name = name;
     form.className = 'form';
 
     const formFields = fields.map( item => {
-      return `<div class="form-input-wrapper">${new FormFields(item).render()}</div>`
-    }).join('');
+      const input = new FormFields(item).render();
+      const inputWrapper = document.createElement('div');
+      inputWrapper.className="form-input-wrapper";
+      inputWrapper.append(input);
+      return inputWrapper;
+    });
     
-    const formReferences = references && references.map( item => new FormReferences(item).render() ).join('');
+    const formReferences = references && references.map( item => new FormReferences(item).render() );
+    console.log(formFields);
 
-    const formButtons = buttons && buttons.map( item => new Button(item).render() ).join(''); 
+    const formButtons = buttons && buttons.map( item => new Button(item).render() );
 
-    form.innerHTML = `
-      ${formFields}
-      
-      ${formReferences && `<div class="form-links">${formReferences}</div>`}
+    formFields.forEach(item => form.append(item));
 
-      ${formButtons && `<div class="form-buttons">${formButtons}</div>`}
-    `;
+    if (references) {
+      const refWrapper = document.createElement('div');
+
+      refWrapper.className = 'form-links';
+      formReferences.forEach(item => refWrapper.append(item));
+      form.append(refWrapper);
+    }
+
+    if (buttons) {
+      const btnWrapper = document.createElement('div');
+
+      btnWrapper.className = 'form-buttons';
+      formButtons.forEach(item => btnWrapper.append(item));
+      form.append(btnWrapper);
+    }
 
     return form;
   }

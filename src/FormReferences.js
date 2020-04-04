@@ -13,22 +13,23 @@ class FormReferences {
       return referencesInput;
     } else {
       const {text, ref, 'text without ref': justText} = references;
-      const referenceTemplate = `
-        <a href="./${ref}.html" class="form-link">${text}</a>
-      `;
+      const link = document.createElement('a');
+      
+      link.setAttribute('href', `./${ref}`);
+      link.className = 'form-link';
+      link.innerHTML = text;
 
       if (justText) {
-        const spanWithLink = `
-          <span class ="form-links_center">
-            ${justText}
-            ${referenceTemplate}
-          </span>
-        `;
+        const span = document.createElement('span');
+        
+        span.className = 'form-links_center';
+        span.append(justText);
+        span.append(link);
 
-        return spanWithLink;
+        return span;
       }
 
-      return referenceTemplate;
+      return link;
     }
 
   }
