@@ -1,0 +1,149 @@
+@import "common.scss";
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 60rem;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 2.7rem;
+  color: $text-color;
+
+  &-input {
+    box-sizing: border-box;
+    flex-grow: 1;
+    max-width: 46rem;
+    height: 4rem;
+    padding: 1rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid $border;
+
+    &_center {
+      margin: 0 auto;
+    }
+
+    &::-webkit-input-placeholder {
+      font-family: "Quicksand", sans-serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      line-height: 2.7rem;
+      color: $text-color;
+    }
+  
+    &::-moz-placeholder {
+      font-family: "Quicksand", sans-serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      line-height: 2.7rem;
+      color: $text-color;
+    }
+  }
+
+  &-label {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    :first-child {
+      margin-right: 2rem;
+      flex-shrink: 0;
+    }
+  }
+
+  &-links {
+    display: flex;
+    justify-content: space-between;
+    // width: 100%;
+    margin-bottom: 2rem;
+
+    &_center {
+      margin: 0 auto;
+    }
+  }
+
+  &-link {
+    color: $blue-primary;
+    margin-right: 2rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &-buttons {
+    display: flex;
+    justify-content: space-between;
+    
+  }
+  
+  &-checkbox {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
+  }
+
+  &-textarea {
+    box-sizing: border-box;
+    flex-grow: 1;
+    max-width: 46rem;
+    padding: 1rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid $border;
+  }
+
+  &-date {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid $border;
+    font-family: "Quicksand", sans-serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 2.7rem;
+  }
+}
+
+.form-input-wrapper {
+  display: flex;
+  margin-bottom: 2rem;
+  width: 100%;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.colorsheme-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 50rem;
+
+  &__theme {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.colorpicker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 36rem;
+
+  &__input {
+    box-sizing: border-box;
+    max-width: 17rem;
+    width: 100%;
+    border-radius: 0.5rem;
+    border: 1px solid #dcdcdc;
+  }
+
+  &__list {
+    border-radius: 0.5rem;
+    border: 1px solid #dcdcdc;
+  }
+}

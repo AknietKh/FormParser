@@ -1,0 +1,235 @@
+.btn {
+  display: flex;
+  justify-content: center;
+  width: 16.5rem;
+  height: 5rem;
+  border-radius: 16%/50%;
+  border: 2px solid #0f7bff;
+  color: #0f7bff;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 2.7rem;
+  background-color: #fff;
+  cursor: pointer;
+}
+.btn_fill {
+  background-color: #0f7bff;
+  color: #ffffff;
+}
+.btn_dark {
+  border-color: #0063dd;
+  background-color: #0063dd;
+}
+.btn_rectangle {
+  width: 26.3rem;
+  height: 7.6rem;
+  border-radius: 5px;
+}
+.btn:hover {
+  opacity: 0.8;
+}
+.btn:active {
+  opacity: 0.5;
+}
+
+:active, :hover, :focus {
+  outline: none;
+}
+
+html {
+  font-size: 8px;
+}
+
+.page-content {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.7rem;
+  color: #929292;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 13rem 4rem;
+}
+
+.main-content {
+  width: 100%;
+  max-width: 114rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.main-content_center {
+  align-items: center;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 70rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.form-navigation {
+  display: flex;
+  align-self: center;
+}
+.form-navigation :nth-child(n) {
+  margin-right: 1rem;
+}
+.form-navigation :last-child {
+  margin-right: 0;
+}
+
+@media only screen and (max-width: 480px) {
+  .form-navigation {
+    flex-direction: column;
+  }
+  .form-navigation :nth-child(n) {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  .form-navigation :last-child {
+    margin-bottom: 0;
+  }
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 60rem;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 2.7rem;
+  color: #929292;
+}
+.form-input {
+  box-sizing: border-box;
+  flex-grow: 1;
+  max-width: 46rem;
+  height: 4rem;
+  padding: 1rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #dcdcdc;
+}
+.form-input_center {
+  margin: 0 auto;
+}
+.form-input::-webkit-input-placeholder {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.7rem;
+  color: #929292;
+}
+.form-input::-moz-placeholder {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.7rem;
+  color: #929292;
+}
+.form-label {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.form-label :first-child {
+  margin-right: 2rem;
+  flex-shrink: 0;
+}
+.form-links {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.form-links_center {
+  margin: 0 auto;
+}
+.form-link {
+  color: #0f7bff;
+  margin-right: 2rem;
+}
+.form-link:last-child {
+  margin-right: 0;
+}
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.form-checkbox {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
+}
+.form-textarea {
+  box-sizing: border-box;
+  flex-grow: 1;
+  max-width: 46rem;
+  padding: 1rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #dcdcdc;
+}
+.form-date {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #dcdcdc;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 2.7rem;
+}
+
+.form-input-wrapper {
+  display: flex;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+.form-input-wrapper:last-child {
+  margin-bottom: 0;
+}
+
+.colorsheme-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 50rem;
+}
+.colorsheme-form__theme {
+  display: flex;
+  align-items: center;
+}
+
+.colorpicker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 36rem;
+}
+.colorpicker__input {
+  box-sizing: border-box;
+  max-width: 17rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid #dcdcdc;
+}
+.colorpicker__list {
+  border-radius: 0.5rem;
+  border: 1px solid #dcdcdc;
+}
+
+/*# sourceMappingURL=form.css.map */
