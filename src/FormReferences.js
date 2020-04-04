@@ -14,12 +14,12 @@ class FormReferences {
     } else {
       const {text, ref, 'text without ref': justText} = references;
       const referenceTemplate = `
-        <a href="./${ref}.html" class="login-form__link">${text}</a>
+        <a href="./${ref}.html" class="form-link">${text}</a>
       `;
 
       if (justText) {
         const spanWithLink = `
-          <span class ="login-form__links-text_center">
+          <span class ="form-links_center">
             ${justText}
             ${referenceTemplate}
           </span>

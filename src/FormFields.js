@@ -20,7 +20,7 @@ class FormFields {
       if (label) {
         const checkboxWithLabelTemplate = `
           <label class="colorsheme-form__theme">
-
+            ${checkboxTemplate}
             <span class="colorsheme-form__text">${label}</span>
           </label>
         `;
@@ -32,7 +32,7 @@ class FormFields {
       
     } else if (input.type === 'textarea') {
       const textareaTemplate = `
-        <label>
+        <label class="form-label">
           <span>${label}</span>
           <textarea 
               class="form-textarea"
@@ -73,6 +73,7 @@ class FormFields {
       const dateTemplate = `
         <input
             type='${input.type}'
+            class="form-date"
             ${input.required ? "required" : ' '}
         >
       `;
@@ -81,16 +82,19 @@ class FormFields {
     } else {
       const inputTemplate = `
         <input type="${input.type}" 
-                class="form-input" 
-                ${input.placeholder ? 'placholder =' + input.placeholder : ' '} 
+                class="form-input form-input_center" 
+                ${input.placeholder ? `placeholder="${input.placeholder}"` : ' '} 
                 ${input.required ? "required" : ' '}
         >`;
 
         if (label) {
           const labelTemplate = `
-              <label for="${input.placeholder || ' ' }" class="login-form__label">
+              <label for="${input.placeholder || ' ' }" class="form-label">
                 <span>${label}</span>
-                ${inputTemplate}
+                <input type="${input.type}" 
+                  class="form-input" 
+                  ${input.placeholder ? `placeholder="${input.placeholder}"` : ' '} 
+                  ${input.required ? "required" : ' '}>
               </label>
           `;
 

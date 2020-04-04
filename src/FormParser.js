@@ -8,14 +8,16 @@ class FormParser {
   }
 
   render() {
-    const {name, fields, references, buttons} = this.formData;
+    const {name, fields, references = '', buttons = ''} = this.formData;
     const form = document.createElement('form');
 
     form.name = name;
     form.className = 'form';
 
-    const formFields = fields.map( item => new FormFields(item).render() ).join('');
-
+    const formFields = fields.map( item => {
+      return `<div class="form-input-wrapper">${new FormFields(item).render()}</div>`
+    }).join('');
+    
     const formReferences = references && references.map( item => new FormReferences(item).render() ).join('');
 
     const formButtons = buttons && buttons.map( item => new Button(item).render() ).join(''); 
@@ -23,13 +25,9 @@ class FormParser {
     form.innerHTML = `
       ${formFields}
       
-      <div class="form-links">
-        ${formReferences || ' '}
-      </div>
+      ${formReferences && `<div class="form-links">${formReferences}</div>`}
 
-      <div class=""form-buttons>
-        ${formButtons || ' '}
-      </div>
+      ${formButtons && `<div class="form-buttons">${formButtons}</div>`}
     `;
 
     return form;
