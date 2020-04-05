@@ -17,13 +17,14 @@ class FormParser {
     const formFields = fields.map( item => {
       const input = new FormFields(item).render();
       const inputWrapper = document.createElement('div');
+
       inputWrapper.className="form-input-wrapper";
       inputWrapper.append(input);
+
       return inputWrapper;
     });
     
     const formReferences = references && references.map( item => new FormReferences(item).render() );
-    console.log(formFields);
 
     const formButtons = buttons && buttons.map( item => new Button(item).render() );
 
