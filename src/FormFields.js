@@ -104,14 +104,102 @@ class FormFields {
         }
 
     } else if (this.input.type === 'file') {
-      input.className = '';
+
+      if (this.input.multiple) {
+        input.multiple = true;
+      }
+
+      if (this.input.filetype) {
+        const filetype = this.input.filetype;
+        let accept = '';
+
+        filetype.forEach((item, i, arr) => {
+          accept += `image/${item},`;
+
+          if (i == arr.length - 1) {
+            accept = accept.slice(0, -1);
+          }
+        });
+
+        input.setAttribute('accept', accept);
+      }
+
+      if (this.label) {
+        const label = document.createElement('label');
+
+        label.className ='form-label';
+        label.for = input.id;
+        label.innerHTML = `
+          <span>${this.label}</span>
+        `;
+
+        input.classList.remove('form-input_center');
+        label.append(input);
+        
+        return label;
+      }
+
       return input;
 
     } else if (this.input.type === 'date') {
       input.className = 'form-date';
+
+      if (this.label) {
+        const label = document.createElement('label');
+
+        label.className ='form-label_multiple';
+        label.for = input.id;
+        label.innerHTML = `
+          <span>${this.label}</span>
+        `;
+
+        input.classList.remove('form-input_center');
+        label.append(input);
+        
+        return label;
+      }
+
       return input;
 
-    } else {
+    } else if(this.input.type === 'technology') {
+      const select = document.createElement('select');
+      
+      select.classList.add('technology');
+
+      if (this.input.multiple) {
+        // select.setAttribute('multiple', 'multiple');
+        select.multiple = true;
+      }
+
+      this.input.technologies.forEach(item => {
+        const option = document.createElement('option');
+
+        option.value = item.toLowerCase();
+        option.innerHTML = item;
+
+        select.append(option);
+      })
+
+      if (this.label) {
+        const label = document.createElement('label');
+
+        label.className ='form-label_multiple';
+        label.for = input.id;
+        label.innerHTML = `
+          <span>${this.label}</span>
+        `;
+
+        label.append(select);
+        
+        $(select).multiselect();
+        
+        return label;
+      }
+
+      $(select).multiselect();
+
+      return select;
+    }else {
       input.classList.add('form-input');
       input.classList.add('form-input_center');
 
