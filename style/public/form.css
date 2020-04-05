@@ -108,6 +108,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   min-width: 60rem;
   font-family: "Quicksand", sans-serif;
   font-size: 1.8rem;
@@ -146,6 +147,11 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: #333333;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 2.7rem;
 }
 .form-label :first-child {
   margin-right: 2rem;
@@ -169,6 +175,12 @@ main {
 .form-buttons {
   display: flex;
   justify-content: space-between;
+}
+.form-buttons :nth-child(n) {
+  margin-right: 1rem;
+}
+.form-buttons :last-child {
+  margin-right: 0;
 }
 .form-checkbox {
   width: 2rem;
