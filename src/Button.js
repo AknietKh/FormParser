@@ -7,8 +7,8 @@ class Button {
     const btn = document.createElement('button');
     
     btn.innerHTML = this.text;
-    btn.classList.add('btn');
-    btn.classList.add('btn_fill');
+    btn.classList.add('form-button');
+    btn.classList.add('form-button_fill');
 
     return btn;
   }
