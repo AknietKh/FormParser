@@ -1,4 +1,4 @@
-.btn {
+.form-button {
   display: flex;
   justify-content: center;
   width: 16.5rem;
@@ -13,23 +13,23 @@
   background-color: #fff;
   cursor: pointer;
 }
-.btn_fill {
+.form-button_fill {
   background-color: #0f7bff;
   color: #ffffff;
 }
-.btn_dark {
+.form-button_dark {
   border-color: #0063dd;
   background-color: #0063dd;
 }
-.btn_rectangle {
+.form-button_rectangle {
   width: 26.3rem;
   height: 7.6rem;
   border-radius: 5px;
 }
-.btn:hover {
+.form-button:hover {
   opacity: 0.8;
 }
-.btn:active {
+.form-button:active {
   opacity: 0.5;
 }
 
