@@ -223,4 +223,16 @@ class FormFields {
   }
 }
 
+class Input {
+  constructor({label = null, input}) {
+    this.label = label;
+    this.input = input;
+  }
+
+  create() {
+    
+  }
+
+}
+
 export {FormFields};
