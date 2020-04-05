@@ -4,6 +4,7 @@ import { Textarea } from './Inputs/Textarea.js';
 import { File } from './Inputs/File.js';
 import { FormDate } from './Inputs/FormDate.js';
 import { Multiple } from './Inputs/Multiple.js';
+import { Color } from './Inputs/Color.js';
 
 class FormFields {
   constructor(formField) {
