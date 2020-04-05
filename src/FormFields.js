@@ -1,3 +1,4 @@
+
 class FormFields {
   constructor({label = null, input}) {
     this.label = label;
@@ -14,6 +15,11 @@ class FormFields {
     if (this.input.placeholder) {
       input.placeholder = this.input.placeholder;
     };
+    
+    if (this.input.mask) {
+      input.type = 'text';
+      Inputmask({"mask": this.input.mask}).mask(input);      
+    }
     
     if (this.input.type === 'checkbox') {
       input.className = 'form-checkbox';
@@ -72,7 +78,7 @@ class FormFields {
 
         const options = this.input.colors.map( item => {
           const option = document.createElement('option');
-          
+
           option.value = item;
           option.label = item;
           
