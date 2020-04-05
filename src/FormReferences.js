@@ -15,7 +15,7 @@ class FormReferences {
       const {text, ref, 'text without ref': justText} = references;
       const link = document.createElement('a');
       
-      link.setAttribute('href', `./${ref}`);
+      link.setAttribute('href', `./${ref}.html`);
       link.className = 'form-link';
       link.innerHTML = text;
 
