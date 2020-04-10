@@ -11,13 +11,13 @@ body {
 
 .page-content {
   // min-height: 100vh;
-  position: relative;
-  width: 100%;
-  overflow: hidden;
   font-family: 'Quicksand', sans-serif;
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 2.7rem;
+  width: 100%;
+  overflow: hidden;
+  
   color: $text-color;
   display: flex;
   flex-direction: column;
@@ -38,7 +38,8 @@ main {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-
+  margin: 0 auto;
+  
   &_center {
     align-items: center;
   }
@@ -55,9 +56,13 @@ main {
 .form-navigation {
   display: flex;
   align-self: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0 7rem;
 
   :nth-child(n) {
     margin-right: 1rem;
+    margin-bottom: 1rem;
   }
 
   :last-child {
@@ -65,17 +70,17 @@ main {
   }
 }
 
-@media only screen and (max-width: 480px) {
-  .form-navigation {
-    flex-direction: column;
+// @media only screen and (max-width: 480px) {
+//   .form-navigation {
+//     flex-direction: column;
     
-    :nth-child(n) {
-      margin-right: 0;
-      margin-bottom: 1rem;
-    }
+//     :nth-child(n) {
+//       margin-right: 0;
+//       margin-bottom: 1rem;
+//     }
   
-    :last-child {
-      margin-bottom: 0;
-    }
-  }
-}
+//     :last-child {
+//       margin-bottom: 0;
+//     }
+//   }
+// }

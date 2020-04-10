@@ -1,7 +1,7 @@
 import { FormParser } from './FormParser.js';
 import { ResponseToUrl } from './ResponseToUrl.js';
 
-ResponseToUrl.get('./db/signUp.json')
+ResponseToUrl.get('./db/addPost.json')
   .then(data => {
     const form = new FormParser(data);
     const formContainer = document.querySelector('.form-container');

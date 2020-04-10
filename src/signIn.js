@@ -1,11 +1,13 @@
-import { ResponseToUrl } from './ResponseToUrl.js';
 import { FormParser } from './FormParser.js';
-import { SignInForm } from './SignInForm.js';
+import { ResponseToUrl } from './ResponseToUrl.js';
 
 ResponseToUrl.get('./db/signIn.json')
   .then(data => {
-    const form = new SignInForm(data);
-    
-    FormParser.setForm(form);
-    FormParser.render();
+    const form = new FormParser(data);
+    const formContainer = document.querySelector('.form-container');
+
+    const formTemplate = form.render();
+    console.log(formTemplate);
+
+    formContainer.append(formTemplate);
   })
