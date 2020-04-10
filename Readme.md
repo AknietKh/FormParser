@@ -1,1 +1,1 @@
-**Реализация лежит в ветке v2.1**
+Парсер форм, который принимает json и рендерит форму. Что бы запустить у себя, нужно запускать через сервер. Как пример можно использовать расширение [Live Server] (https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) для [VSCode] (https://code.visualstudio.com/).
